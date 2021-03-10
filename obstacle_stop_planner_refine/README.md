@@ -17,7 +17,7 @@
 		- Basically, the ego vehicle stops *stop_margin_* (def: 5 m) before the obstacle
 		- Considering a case that we would like to approach near the obstacle (e.g. crosswalk), if there is another stop plan between the obstacle and *stop_margin_*, the ego vehicle approaches to *min_behavior_stop_margin_* (def: 2 m) and stops.
 
-![osp1](./img/osp1.png "(1)") ![osp2](./img/osp2.png "(2)") ![osp3](./img/osp3.png "(3)")
+![osp1](./img/osp1.svg "(1)") ![osp2](./img/osp2.svg "(2)") ![osp3](./img/osp3.svg "(3)")
 
 ### In the case of being a vehicle in front of the ego-vehicle’s driving lane
 
@@ -44,7 +44,7 @@
 		- em_braking_distance = (-½) * v_e * v_e / emergency_stop_acceleration[-5.0m/ss]
 		- em_obj_braking_distance =  (-½) * v_o * v_o / emergency_stop_acceleration[-5.0m/ss]
 
-![osp4](./img/osp4.png)
+![osp4](./img/osp4.svg)
 
 ## Inputs/Outputs
 
