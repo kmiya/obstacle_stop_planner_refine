@@ -75,5 +75,5 @@ Output:
 
 ## Future extensions/Unimplemented parts
 
-## Fererences/External links
+## References/External links
 
