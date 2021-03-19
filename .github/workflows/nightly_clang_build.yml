@@ -19,6 +19,8 @@ jobs:
 
       - name: Store all package names to ENV
         run: |
+          mkdir src
+          vcs import --force --recursive src/ < build_depends.repos
           echo "PACKAGE_NAMES=$(colcon list -n | tr '\n' ' ')" >> $GITHUB_ENV
 
       - name: Run action-ros-ci
