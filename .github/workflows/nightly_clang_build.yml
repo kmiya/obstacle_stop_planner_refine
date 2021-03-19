@@ -21,8 +21,8 @@ jobs:
         run: |
           mkdir src
           vcs import --recursive src/ < build_depends.repos
-          vcs import src/ < src/autoware/AutowareArchitectureProposal.iv/build_depends.repos
           echo "PACKAGE_NAMES=$(colcon list -nt | tr '\n' ' ')" >> $GITHUB_ENV
+          vcs import src/ < src/autoware/AutowareArchitectureProposal.iv/build_depends.repos
 
       - name: Install OpenMP lib for Clang
         run: |
@@ -35,7 +35,7 @@ jobs:
           package-name: ${{ env.PACKAGE_NAMES }}
           target-ros2-distro: foxy
           vcs-repo-file-url: build_depends.repos
-          #colcon-mixin-name: clang-libcxx
+          colcon-mixin-name: clang-libcxx
           # If possible, pin the repository in the workflow to a specific commit to avoid
           # changes in colcon-mixin-repository from breaking your tests.
           colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml
