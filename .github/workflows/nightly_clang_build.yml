@@ -21,8 +21,8 @@ jobs:
         run: |
           mkdir src
           vcs import --recursive src/ < build_depends.repos
-          echo "PACKAGE_NAMES=$(colcon list -nt | tr '\n' ' ')" >> $GITHUB_ENV
           vcs import src/ < src/autoware/AutowareArchitectureProposal.iv/build_depends.repos
+          echo "PACKAGE_NAMES=$(colcon list -nt | tr '\n' ' ')" >> $GITHUB_ENV
 
       - name: Install OpenMP lib for Clang
         run: |
