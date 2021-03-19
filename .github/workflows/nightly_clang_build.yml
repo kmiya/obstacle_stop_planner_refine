@@ -17,13 +17,11 @@ jobs:
         with:
           required-ros-distributions: foxy
 
-      - name: Save all package names to ENV
-        env:
-          PACKAGE_NAMES: ${{ colcon list -n | tr '\n' ' ' }}
-
       - name: Run action-ros-ci
         id: action_ros_ci_step
         uses: ros-tooling/action-ros-ci@0.1.2
+        env:
+          PACKAGE_NAMES: ${{ colcon list -n | tr '\n' ' ' }}
         with:
           package-name: ${PACKAGE_NAMES}
           target-ros2-distro: foxy
