@@ -20,7 +20,7 @@ jobs:
       - name: Store all package names to ENV
         run: |
           mkdir src
-          vcs import --force --recursive src/ < build_depends.repos
+          vcs import --recursive src/ < build_depends.repos
           echo "PACKAGE_NAMES=$(colcon list -n | tr '\n' ' ')" >> $GITHUB_ENV
 
       - name: Run action-ros-ci
@@ -30,7 +30,7 @@ jobs:
           package-name: ${{ env.PACKAGE_NAMES }}
           target-ros2-distro: foxy
           vcs-repo-file-url: build_depends.repos
-          colcon-mixin-name: clang-libcxx
+          #colcon-mixin-name: clang-libcxx
           # If possible, pin the repository in the workflow to a specific commit to avoid
           # changes in colcon-mixin-repository from breaking your tests.
           colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml
