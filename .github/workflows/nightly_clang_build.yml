@@ -17,13 +17,15 @@ jobs:
         with:
           required-ros-distributions: foxy
 
+      - name: Store all package names to ENV
+        run: |
+          echo "PACKAGE_NAMES=$(colcon list -n | tr '\n' ' ')" >> $GITHUB_ENV
+
       - name: Run action-ros-ci
         id: action_ros_ci_step
         uses: ros-tooling/action-ros-ci@0.1.2
-        env:
-          PACKAGE_NAMES: ${{ colcon list -n | tr '\n' ' ' }}
         with:
-          package-name: ${PACKAGE_NAMES}
+          package-name: ${{ env.PACKAGE_NAMES }}
           target-ros2-distro: foxy
           vcs-repo-file-url: build_depends.repos
           colcon-mixin-name: clang-libcxx
