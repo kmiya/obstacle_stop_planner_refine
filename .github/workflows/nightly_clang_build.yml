@@ -21,6 +21,7 @@ jobs:
         run: |
           mkdir src
           vcs import --recursive src/ < build_depends.repos
+          vcs import --recursive src/ < src/autoware/AutowareArchitectureProposal.iv/build_depends.repos
           echo "PACKAGE_NAMES=$(colcon list -n | tr '\n' ' ')" >> $GITHUB_ENV
 
       - name: Run action-ros-ci
